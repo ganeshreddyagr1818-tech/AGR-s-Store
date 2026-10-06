@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AGR'S Store</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f5f5f5;
+}
+
+/* NAVBAR */
+
+nav{
+background:black;
+padding:15px;
+text-align:center;
+}
+
+nav a{
+color:white;
+margin:15px;
+text-decoration:none;
+font-size:18px;
+}
+
+nav a:hover{
+color:orange;
+}
+
+/* PAGES */
+
+.page{
+display:none;
+padding:30px;
+}
+
+.active{
+display:block;
+}
+
+/* HERO */
+
+.hero{
+background:url("https://images.unsplash.com/photo-1520975916090-3105956dac38");
+height:320px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+color:white;
+font-size:40px;
+font-weight:bold;
+}
+
+/* PRODUCTS */
+
+.products{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.card{
+background:white;
+padding:15px;
+width:220px;
+box-shadow:0 0 10px #ccc;
+text-align:center;
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+/* CART */
+
+.cart-box{
+background:white;
+padding:20px;
+width:350px;
+box-shadow:0 0 10px #ccc;
+}
+
+/* BUTTONS */
+
+button{
+background:black;
+color:white;
+border:none;
+padding:10px 18px;
+cursor:pointer;
+}
+
+button:hover{
+background:orange;
+}
+
+/* FOOTER */
+
+footer{
+background:black;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:40px;
+}
+
+</style>
+
+<script>
+
+function showPage(page){
+let pages=document.querySelectorAll(".page");
+pages.forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+}
+
+let cart=[];
+
+function addToCart(product){
+
+cart.push(product);
+
+let cartList=document.getElementById("cartItems");
+
+let item=document.createElement("li");
+
+item.innerText=product;
+
+cartList.appendChild(item);
+
+alert(product+" added to cart");
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="#" onclick="showPage('home')">Home</a>
+<a href="#" onclick="showPage('products')">Products</a>
+<a href="#" onclick="showPage('categories')">Categories</a>
+<a href="#" onclick="showPage('collection')">New Collection</a>
+<a href="#" onclick="showPage('cart')">Cart 🛒</a>
+<a href="#" onclick="showPage('about')">About</a>
+<a href="#" onclick="showPage('contact')">Contact</a>
+
+</nav>
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<div class="hero">
+
+AGR'S Store
+
+<br><br>
+
+<button onclick="showPage('cart')">Go To Cart 🛒</button>
+
+</div>
+
+<h2>Welcome to AGR'S Store</h2>
+
+<p>Discover the best fashion products including hoodies, polo shirts,
+cargo pants and many more trending outfits.</p>
+
+</div>
+
+<!-- PRODUCTS -->
+
+<div id="products" class="page">
+
+<h2>Our Products</h2>
+
+<div class="products">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<h3>T Shirt</h3>
+<p>₹999</p>
+<button onclick="addToCart('T Shirt')">Add To Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7">
+<h3>Hoodie</h3>
+<p>₹1299</p>
+<button onclick="addToCart('Hoodie')">Add To Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34">
+<h3>Polo T-Shirt</h3>
+<p>₹1099</p>
+<button onclick="addToCart('Polo T Shirt')">Add To Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1593032465171-8c2e2b1a9d8b">
+<h3>Cargo Pants</h3>
+<p>₹1499</p>
+<button onclick="addToCart('Cargo Pants')">Add To Cart</button>
+</div>
+
+</div>
+
+</div>
+
+<!-- CATEGORIES -->
+
+<div id="categories" class="page">
+
+<h2>Categories</h2>
+
+<ul>
+
+<li onclick="showPage('hoodie')">Hoodies</li>
+<li onclick="showPage('polo')">Polo T-Shirts</li>
+<li onclick="showPage('cargo')">Cargo Pants</li>
+<li onclick="showPage('tshirts')">T Shirts</li>
+<li onclick="showPage('jeans')">Jeans</li>
+
+</ul>
+
+</div>
+
+<!-- COLLECTION -->
+
+<div id="collection" class="page">
+
+<h2>New Collection 2026</h2>
+
+<img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d" width="420">
+
+</div>
+
+<!-- HOODIE -->
+
+<div id="hoodie" class="page">
+
+<h2>Hoodie Collection</h2>
+
+<img src="https://images.unsplash.com/photo-1556821840-3a63f95609a7" width="300">
+
+<p>Comfortable and stylish hoodies perfect for winter.</p>
+
+</div>
+
+<!-- POLO -->
+
+<div id="polo" class="page">
+
+<h2>Polo T-Shirt Collection</h2>
+
+<img src="https://images.unsplash.com/photo-1622445275463-afa2ab738c34" width="300">
+
+<p>Classic polo shirts for a smart casual look.</p>
+
+</div>
+
+<!-- CARGO -->
+
+<div id="cargo" class="page">
+
+<h2>Cargo Pants Collection</h2>
+
+<img src="https://images.unsplash.com/photo-1593032465171-8c2e2b1a9d8b" width="300">
+
+<p>Durable cargo pants with modern fashion style.</p>
+
+</div>
+
+<!-- TSHIRTS -->
+
+<div id="tshirts" class="page">
+
+<h2>T Shirt Collection</h2>
+
+<p>Trendy printed and plain T-shirts for everyday fashion.</p>
+
+</div>
+
+<!-- JEANS -->
+
+<div id="jeans" class="page">
+
+<h2>Jeans Collection</h2>
+
+<p>High quality denim jeans available in multiple styles.</p>
+
+</div>
+
+<!-- CART -->
+
+<div id="cart" class="page">
+
+<h2>Your Cart 🛒</h2>
+
+<div class="cart-box">
+
+<ul id="cartItems"></ul>
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
+
+<div id="about" class="page">
+
+<h2>About AGR'S Store</h2>
+
+<p>
+
+AGR'S Store provides high quality fashion clothing
+including hoodies, polo shirts, cargo pants,
+T-shirts and jeans at affordable prices.
+
+</p>
+
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="page">
+
+<h2>Contact Us</h2>
+
+<form>
+
+<label>Name</label><br>
+<input type="text"><br><br>
+
+<label>Email</label><br>
+<input type="email"><br><br>
+
+<label>Message</label><br>
+<textarea rows="4"></textarea><br><br>
+
+<button>Send</button>
+
+</form>
+
+</div>
+
+<footer>
+
+<p>© 2026 AGR'S Store | All Rights Reserved</p>
+
+</footer>
+
+</body>
+</html>
